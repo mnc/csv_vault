@@ -20,7 +20,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Simple Encryption
+**original csv**
+*users.csv*
+```
+1,mnc,password1
+2,sample,password2
+```
+
+**encrypt command**
+```shell
+csv_vault encrypt users.csv -o encrypted_users.csv -c 2
+```
+
+**encrypted csv**
+```
+1,mnc,N28wam1wTjhnV3RwUXRMRFlqczI1emdNbmNXV2RyN3YrMmpRYytSN04xQT0tLVc5TXNGcUlwaFN4ZnpkSmxYVzZEdkE9PQ==--4f865737f808ed54d303c96f39ebc0bae1247edf7fb9befc59597b598836ec21
+2,sample,V1dDM2FKYlF6TWdiL2ZsTXVGQkRUWVBWUDZIV2oxL0pyMzdjcW5pMVQ5TT0tLVJYN1VnVHA3OUJCU2VHY2RyUzJNMmc9PQ==--dcbe6e8a49513be26062aa1b5b6542ea804dafdf9815b2c72d8c0e84704438a0
+```
 
 ## Development
 
