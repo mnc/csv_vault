@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require "csv_vault"
+
+CsvVault::Cli.start(ARGV)
