@@ -6,7 +6,7 @@ module CsvVault
     def initialize(input_file:, output_file: nil, col_nums: [], passphrase:, salt: nil)
       @input_file  = input_file
       @output_file = output_file
-      @col_nums    = col_nums
+      @col_nums    = col_nums.map(&:to_i)
       @passphrase  = passphrase
       @salt        = salt.to_s
       @cryptor     = cryptor

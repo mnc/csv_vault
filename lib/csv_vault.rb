@@ -1,5 +1,6 @@
 require "csv_vault/version"
 require "csv_vault/main"
+require "csv_vault/cli"
 
 module CsvVault
   def self.from_file(input_file:, output_file: nil, col_nums: [], passphrase:, salt: nil)
