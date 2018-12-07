@@ -1,6 +1,6 @@
 # CsvVault
 
-CsvVault is a Ruby gem to encrypt/decrypt CSV. You can specify target columns to encrypt/decrypt.
+CsvVault is a Ruby gem to encrypt/decrypt CSV including credentials. You can specify target columns to encrypt/decrypt.
 
 ## Installation
 
