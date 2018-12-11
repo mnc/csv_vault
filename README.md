@@ -39,6 +39,11 @@ csv_vault encrypt users.csv -o encrypted_users.csv -c 2
 2,sample,V1dDM2FKYlF6TWdiL2ZsTXVGQkRUWVBWUDZIV2oxL0pyMzdjcW5pMVQ5TT0tLVJYN1VnVHA3OUJCU2VHY2RyUzJNMmc9PQ==--dcbe6e8a49513be26062aa1b5b6542ea804dafdf9815b2c72d8c0e84704438a0
 ```
 
+**decrypt command**
+```shell
+csv_vault decrypt encrypted_users.csv -o users.csv -c 2
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
