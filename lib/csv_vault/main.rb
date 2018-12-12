@@ -13,13 +13,7 @@ module CsvVault
     end
 
     def encrypt
-      @processed_rows = CSV.foreach(@input_file).map do |row|
-        if @col_nums.empty?
-          encrypt_all(row)
-        else
-          encrypt_partially(row)
-        end
-      end
+      @processed_rows = CSV.foreach(@input_file).map{ |row| encrypt_row(row) }
       self
     end
 
@@ -32,17 +26,27 @@ module CsvVault
     end
 
     def decrypt
-      @processed_rows = CSV.foreach(@input_file).map do |row|
-        if @col_nums.empty?
-          decrypt_all(row)
-        else
-          decrypt_partially(row)
-        end
-      end
+      @processed_rows = CSV.foreach(@input_file).map{ |row| decrypt_row(row) }
       self
     end
 
     private
+
+    def encrypt_row(row)
+      if @col_nums.empty?
+        encrypt_all(row)
+      else
+        encrypt_partially(row)
+      end
+    end
+
+    def decrypt_row(row)
+      if @col_nums.empty?
+        decrypt_all(row)
+      else
+        decrypt_partially(row)
+      end
+    end
 
     # TODO: parameterize length, digest and cipher
     def cryptor
