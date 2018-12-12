@@ -1,6 +1,7 @@
 require 'csv'
 require 'active_support'
 require 'csv_vault/encryptor'
+require 'csv_vault/decryptor'
 
 module CsvVault
   class Main
