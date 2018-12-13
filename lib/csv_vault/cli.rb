@@ -10,21 +10,23 @@ module CsvVault
     class_option :salt,       type: :string, aliases: "-s", banner: 'randomsalt'
 
     desc "encrypt csv", "encrypt"
-    def encrypt(input_csv_file)
-      CsvVault.from_file(input_file: input_csv_file, 
-                         output_file: options[:output], 
-                         col_nums: options[:col_nums],
-                         passphrase: options[:passphrase],
-                         salt: options[:salt]).encrypt.output
+    def encrypt(input_file)
+      rows = CsvVault.from_file(input_file: input_file, col_nums: options[:col_nums], passphrase: options[:passphrase], salt: options[:salt]).encrypt
+      output(rows)
     end
 
     desc "decrypt csv", "decrypt"
-    def decrypt(input_csv_file)
-      CsvVault.from_file(input_file: input_csv_file, 
-                         output_file: options[:output], 
-                         col_nums: options[:col_nums], 
-                         passphrase: options[:passphrase], 
-                         salt: options[:salt]).decrypt.output
+    def decrypt(input_file)
+      rows = CsvVault.from_file(input_file: input_file, col_nums: options[:col_nums], passphrase: options[:passphrase], salt: options[:salt]).decrypt
+      output(rows)
+    end
+
+    private
+
+    def output(rows)
+      CSV.open(options[:output], 'w') do |csv|
+        rows.each { |row| csv << row }
+      end
     end
   end
 end
